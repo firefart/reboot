@@ -1,0 +1,4 @@
+*.exe
+*.txt
+.DS_Store
+reboot
