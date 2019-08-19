@@ -16,6 +16,7 @@ func StartService(name string) error {
 	if err != nil {
 		return err
 	}
+	// nolint: errcheck
 	defer m.Disconnect()
 	s, err := m.OpenService(name)
 	if err != nil {
@@ -35,6 +36,7 @@ func ControlService(name string, c svc.Cmd, to svc.State) error {
 	if err != nil {
 		return err
 	}
+	// nolint: errcheck
 	defer m.Disconnect()
 	s, err := m.OpenService(name)
 	if err != nil {

@@ -55,6 +55,7 @@ func InstallService(name, desc string) error {
 	if err != nil {
 		return err
 	}
+	// nolint: errcheck
 	defer m.Disconnect()
 	s, err := m.OpenService(name)
 	if err == nil {
@@ -73,6 +74,7 @@ func InstallService(name, desc string) error {
 	defer s.Close()
 	err = eventlog.InstallAsEventCreate(name, eventlog.Error|eventlog.Warning|eventlog.Info)
 	if err != nil {
+		// nolint: errcheck
 		s.Delete()
 		return fmt.Errorf("SetupEventLogSource() failed: %v", err)
 	}
@@ -85,6 +87,7 @@ func RemoveService(name string) error {
 	if err != nil {
 		return err
 	}
+	// nolint: errcheck
 	defer m.Disconnect()
 	s, err := m.OpenService(name)
 	if err != nil {
