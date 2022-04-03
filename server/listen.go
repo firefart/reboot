@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/FireFart/reboot/logger"
+	"github.com/firefart/reboot/logger"
 )
 
 // Listen listens for incoming TCP connections

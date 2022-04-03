@@ -1,2 +1,4 @@
-golang.org/x/sys v0.0.0-20191010194322-b09406accb47 h1:/XfQ9z7ib8eEJX2hdgFTZJ/ntt0swNk5oYBziWeTCvY=
-golang.org/x/sys v0.0.0-20191010194322-b09406accb47/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+github.com/FireFart/reboot v0.0.0-20210817070339-7f7b99f17517 h1:MT0KZFWWFL45VxzLci0YNi+fRUO7NTTxj+Fxu5WlhAw=
+github.com/FireFart/reboot v0.0.0-20210817070339-7f7b99f17517/go.mod h1:vyVjrPYzl/39/EzXOwpqbC64lgugw2lGQ+sohZvdWs0=
+golang.org/x/sys v0.0.0-20220403205710-6acee93ad0eb h1:PVGECzEo9Y3uOidtkHGdd347NjLtITfJFO9BxFpmRoo=
+golang.org/x/sys v0.0.0-20220403205710-6acee93ad0eb/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=

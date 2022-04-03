@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/FireFart/reboot/commands"
-	"github.com/FireFart/reboot/logger"
+	"github.com/firefart/reboot/commands"
+	"github.com/firefart/reboot/logger"
 )
 
 func handleConnection(c net.Conn, logger logger.Log, password string) {
@@ -58,7 +58,7 @@ func handleConnection(c net.Conn, logger logger.Log, password string) {
 			text = []byte("Done\n")
 		}
 		// nolint: errcheck
-		logger.Info(1, fmt.Sprintf("%s", text))
+		logger.Info(1, string(text))
 		_, err = c.Write(text)
 		if err != nil {
 			// nolint: errcheck

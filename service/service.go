@@ -1,4 +1,4 @@
-// +build windows
+//go:build windows
 
 package service
 
@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/FireFart/reboot/server"
+	"github.com/firefart/reboot/server"
 	"golang.org/x/sys/windows/svc"
 	"golang.org/x/sys/windows/svc/debug"
 	"golang.org/x/sys/windows/svc/eventlog"
