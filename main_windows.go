@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/FireFart/reboot/service"
+	"github.com/firefart/reboot/service"
 	"golang.org/x/sys/windows/svc"
 )
 
