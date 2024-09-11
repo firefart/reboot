@@ -1,0 +1,72 @@
+version: "3"
+
+vars:
+  PROGRAM: reboot
+
+tasks:
+  deps:
+    cmds:
+      - go mod tidy -v
+
+  update:
+    cmds:
+      - go get -u
+      - go mod tidy -v
+
+  setup:
+    cmds:
+      - go install mvdan.cc/gofumpt@latest
+
+  build-all:
+    aliases: [default]
+    deps: [build-linux, build-windows]
+
+  pre-build:
+    cmds:
+      - go fmt ./...
+      - gofumpt -l -w .
+      - go vet ./...
+
+  build-linux:
+    deps: [deps, pre-build]
+    env:
+      CGO_ENABLED: 0
+    cmds:
+      - go build -o {{.PROGRAM}}
+
+  build-windows:
+    deps: [deps, pre-build]
+    env:
+      CGO_ENABLED: 0
+      GOOS: windows
+      GOARCH: amd64
+    cmds:
+      - go build -o {{.PROGRAM}}.exe
+
+  test:
+    deps: [deps]
+    env:
+      CGO_ENABLED: 1 # required by -race
+    cmds:
+      - go test -race -cover ./...
+
+  lint:
+    cmds:
+      - golangci-lint run ./... --timeout=30m
+      - go mod tidy
+
+  lint-update:
+    cmds:
+      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b {{ .GOPATH }}/bin
+      - golangci-lint --version
+    vars:
+      GOPATH:
+        sh: go env GOPATH
+
+  tag:
+    cmds:
+      - git tag -a "${TAG}" -m "${TAG}"
+      - git push origin "${TAG}"
+    preconditions:
+      - sh: '[[ -n "${TAG}" ]]'
+        msg: "Please set the TAG environment variable"

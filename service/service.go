@@ -4,7 +4,7 @@ package service
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 	"strings"
 	"time"
 
@@ -33,7 +33,7 @@ func (m *myservice) Execute(args []string, r <-chan svc.ChangeRequest, changes c
 		errno = 1
 		return
 	}
-	pwbyte, err := ioutil.ReadFile(fmt.Sprintf("%s\\password.conf", p))
+	pwbyte, err := os.ReadFile(fmt.Sprintf("%s\\password.conf", p))
 	if err != nil {
 		// nolint: errcheck
 		elog.Error(1, fmt.Sprintf("could not read password.conf: %v", err))

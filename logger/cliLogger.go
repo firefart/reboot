@@ -11,19 +11,19 @@ func (CLILogger) Close() error {
 }
 
 // Info prints a info message
-func (CLILogger) Info(eid uint32, msg string) error {
+func (CLILogger) Info(_ uint32, msg string) error {
 	log.Printf("[INFO] %s", msg)
 	return nil
 }
 
 // Warning prints a warning message
-func (CLILogger) Warning(eid uint32, msg string) error {
+func (CLILogger) Warning(_ uint32, msg string) error {
 	log.Printf("[WARNING] %s", msg)
 	return nil
 }
 
 // Error prints an error message
-func (CLILogger) Error(eid uint32, msg string) error {
+func (CLILogger) Error(_ uint32, msg string) error {
 	log.Printf("[ERROR] %s", msg)
 	return nil
 }

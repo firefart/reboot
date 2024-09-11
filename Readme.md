@@ -14,7 +14,7 @@ You can connect via netcat or telnet to port 1234 and send the `REBOOT` keyword.
 
 ## Install
 
-- build the binary on a windows machine using `go build` or by executing `make.bat`
+- build the binary on a windows machine using `go build` or by executing `task`
 
 - copy `reboot.exe` and `password.conf` to a directory (for example `C:\Program Files\reboot\`)
 

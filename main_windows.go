@@ -1,4 +1,4 @@
-// +build windows
+//go:build windows
 
 package main
 
@@ -25,11 +25,11 @@ func usage(errmsg string) {
 func main() {
 	const svcName = "reboot"
 
-	isIntSess, err := svc.IsAnInteractiveSession()
+	isService, err := svc.IsWindowsService()
 	if err != nil {
-		log.Fatalf("failed to determine if we are running in an interactive session: %v", err)
+		log.Fatalf("failed to determine if we are running as a service: %v", err)
 	}
-	if !isIntSess {
+	if !isService {
 		service.RunService(svcName, false)
 		return
 	}
