@@ -28,7 +28,7 @@ jobs:
         run: task setup
 
       - name: Build
-        run: task build
+        run: task build-all
 
       - name: Test
         run: task test
